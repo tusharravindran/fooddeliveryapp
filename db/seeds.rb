@@ -11,11 +11,11 @@ password: 'p@ssword',
 password_confirmation: 'p@ssword',
 admin: true)
 
-25.times do |i|
-  Products.create!(
+10.times do |i|
+  Product.create!(
     name: "Pizza",
     description: "Crusty Pizza with cheese and wheat",
     price: 150.00,
-    catering_item: true
+    catering: true
   )
 end
