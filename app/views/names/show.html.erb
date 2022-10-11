@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @name.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @name.price %>
+</p>
+
+<p>
+  <strong>Vegeterian:</strong>
+  <%= @name.vegeterian %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @name.available %>
+</p>
+
+<p>
+  <strong>Catering:</strong>
+  <%= @name.catering %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @name.featured %>
+</p>
+
+<%= link_to 'Edit', edit_name_path(@name) %> |
+<%= link_to 'Back', names_path %>
