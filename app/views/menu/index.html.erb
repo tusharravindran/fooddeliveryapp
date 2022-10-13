@@ -1,0 +1,15 @@
+<div class="menu-container">
+  <div class="row">
+<% 1.times do %>
+<% @products.each do |product|%>
+   <div class="col-4">
+<h5><a href=""><%=product.name %></h5></a>
+<p><%= product.description %></p>
+<span>
+<%= product.price %> || <%= product.catering ? "Available for catering" : "" %>
+</span>
+   </div>
+<% end %>
+<% end %>
+  </div>
+</div>
