@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'catering', to: 'pages#catering'
   get 'info', to: 'pages#info'
- end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
