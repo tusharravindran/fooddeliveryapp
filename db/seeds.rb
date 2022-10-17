@@ -17,7 +17,7 @@ User.create!(email: 'admin@fooddelivery.com',
   Category.create!(heading: 'Dessert', body: "Cold as snow ,Sweet as Honey", display: true)
   
   
-  21.times do |i|
+  6.times do |i|
     pizza = Product.new(
       name: "Veg Pizza",
       description: "Crusty Pizza with cheese and wheat",

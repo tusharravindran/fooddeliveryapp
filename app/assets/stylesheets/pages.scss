@@ -17,19 +17,20 @@
   -webkit-box-shadow: 2px 2px 2px 0px rgba(227,54,72,1);
   -moz-box-shadow: 2px 2px 2px 0px rgba(227,54,72,1);
   box-shadow: 2px 2px 2px 0px rgba(227,54,72,1);
-  background-color: rgb(252, 0, 0);
-  
-  
-  
+  background-color: rgb(252, 0, 0); 
 }
 
 .tittle-text{
-  color: rgb(0, 0, 0);
+  color: rgb(248, 245, 245);
   text-align: center;
   font-size: 3em;
   margin: 0;
+  text-decoration: none;
+ 
 }
-
+table, th, td, thead, tbody{
+  border:1px solid black;
+}
 .home-page{
   width: 100vw;
   height:100vw;

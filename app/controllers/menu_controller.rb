@@ -13,11 +13,10 @@ class MenuController < ApplicationController
     if params[:filter] == 'Select Filter'
       @products = results
     else
-      # 'Dairy Free' -> 'Dairy_Free' -> 'dairy_free' -> :dairy_free
       symbol = params[:filter].gsub(/ /, '_').downcase!.to_sym
-      # @products = results.where(:dairy_free => true)
       @products = results.where(symbol => true)
     end
+    
   end
 
   private
@@ -26,3 +25,4 @@ class MenuController < ApplicationController
     @cats = Category.all.where(display: true)
   end
 end
+

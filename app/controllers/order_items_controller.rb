@@ -5,12 +5,15 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_params)
     @order.save
     session[:order_id] = @order.id
+    redirect_to '/cart'
   end
 
+  
   def update
     @order_item = @order.order_items.find(params[:id])
     @order_item.update(order_params)
     @order_items = current_order.order_items
+    redirect_to '/cart'
   end
 
   def destroy
@@ -28,4 +31,5 @@ class OrderItemsController < ApplicationController
   def set_order
     @order = current_order
   end
+  
 end
