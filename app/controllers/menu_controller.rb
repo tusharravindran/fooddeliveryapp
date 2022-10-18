@@ -16,7 +16,7 @@ class MenuController < ApplicationController
       symbol = params[:filter].gsub(/ /, '_').downcase!.to_sym
       @products = results.where(symbol => true)
     end
-    
+    @order_item = current_order.order_items.new
   end
 
   private
