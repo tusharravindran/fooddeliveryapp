@@ -1,28 +1,32 @@
 <div class="row">
     <% @cats.each do |cat| %>
-    <% if cat.products.where(featured: true).first.image.attached? %>
-    <%= image_tag(cat.products.where(featured: true).first.image, class:'img-fluid')%>
+    <% if cat.products.first.image.attached? %>
+    
+    <%= image_tag(cat.products.first.image, class:'img-fluid')%>
+
     <% end %>
     <div class="col-12">
-        <b><h1 style="text-align:center;"><%= cat.heading %></h1></b>
+    <h5 class="card-title"><b><h1 style="text-align:center;"><%= cat.heading %></h1></b></h5>
+        
         <hr />
     </div>
     <% @products.each do |product| %>
     <% if product.category == cat %>
-    <div class="card" style="width: 80rem;">
-    <div class="col-4">
-        <h4><b>
-            <%= product.name %></b>
+    <div class="card" style="width: 80rem; height: 13   rem">
+    <div class="col-9">
+        <h4>
+        <b><%= product.name %></b>
         </h4>
        <p>
-    <%= product.description%>
-      </p>
+   <p><b>Description :  <%= product.description%> </b></p>
             
-        <span><%= product.price %> <%= "| Available for catering" if product.catering %></span>
+        <span><p><b>Price : <%= product.price %></b><p> <%= "| Available for catering" if product.catering %></span>
         <%= form_with model: @order_item do |f| %>
         <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, value: 1, min: 1%>
-       <div id="col-2"> <%= f.submit "Add To Cart" %></div>
+        <div class="card" style="width: 30rem; height: 10   rem"><%= f.number_field :quantity, value: 1, min: 1%>
+        <%= f.submit "Add To Cart" %>
+        </div>
+        
      
         <% end %>
     </div>

@@ -1,22 +1,44 @@
-<div class="col-2">
+  <div class="col-2">
 <h5 class ="link-container">
+  <% if user_signed_in?%>
+
 <%= link_to "Home", root_path, class: "link #{@page == 'home' ? 'active' : ''}"%>
 </h5>
 
 <h5 class ="link-container">
 <%= link_to "Menu", menu_path, class: "link #{@page == 'menu' ? 'active' : ''}"%>
 </h5>
+<% if current_user.admin?%>  
+<h5 class ="link-container">
+<%= link_to "Products", products_path, class: "link #{@page == 'products' ? 'active' : ''}"%>
+</h5>
+<h5 class ="link-container">
+<%= link_to "Add-Categories", categories_path, class: "link #{@page == 'categories' ? 'active' : ''}" %>
+</h5>
+<%end%>
+
 
 <h5 class ="link-container">
-<%= link_to "Catering", catering_path, class: "link #{@page == 'catering' ? 'active' : ''}"%>
+<%= link_to "More Info", info_path, class: "link #{@page == 'info' ? 'active' : ''}" %>
 </h5>
 
 <h5 class ="link-container">
-<%= link_to "More Info", info_path, class: "link #{@page == 'info' ? 'active' : ''}"%>
+<%= link_to "My Orders","" , class: "link #{@page == 'reviews' ? 'active' : ''}"%>
 </h5>
 
 <h5 class ="link-container">
-<%= link_to "Customer Reviews","" , class: "link #{@page == 'reviews' ? 'active' : ''}"%>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete  ,:style=>'color: white;'%>
 </h5>
+ <%else%>
+
+  <h5 class ="link-container" style="text-align: right">
+      <%= link_to "Sign Up", new_user_registration_path %>
+      </h5>
+      <h5 class ="link-container" style="text-align: right">
+      <%= link_to "Log In", new_user_session_path %>
+      </h5>
+
+
+<%end%>
 
 </div>
