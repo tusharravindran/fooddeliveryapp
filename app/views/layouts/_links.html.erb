@@ -3,29 +3,28 @@
 <h5 class ="link-container">
   
 
-<%= link_to "Home", root_path, class: "link #{@page == 'home' ? 'active' : ''}"%>
+<%= link_to "Home", root_path, class: "link #{@page == 'home' ? 'active' : ''}" if params[:controller].eql?('pages') && params[:action].eql?('home')%>
 </h5>
 
 <h5 class ="link-container">
-<%= link_to "Menu", menu_path, class: "link #{@page == 'menu' ? 'active' : ''}"%>
+<%= link_to "Menu", menu_path, class: "link #{@page == 'menu' ? 'active' : ''}" if params[:controller].eql?('pages') && params[:action].eql?('home')%>
+</h5>
+</h5>
+<h5 class ="link-container">
+<%= link_to "Cart", cart_path, class: "link #{@page == 'categories' ? 'active' : ''}" %>
 </h5>
 <% if current_user.admin?%>  
 <h5 class ="link-container">
-<%= link_to "Products", products_path, class: "link #{@page == 'products' ? 'active' : ''}"%>
+<%= link_to "Products", products_path, class: "link #{@page == 'products' ? 'active' : ''}" if params[:controller].eql?('pages') && params[:action].eql?('home')%>
 </h5>
 <h5 class ="link-container">
-<%= link_to "Add-Categories", categories_path, class: "link #{@page == 'categories' ? 'active' : ''}" %>
+<%= link_to "Add-Categories", categories_path, class: "link #{@page == 'categories' ? 'active' : ''}" if params[:controller].eql?('pages') && params[:action].eql?('home')%>
 </h5>
+
 <%end%>
 
 
-<h5 class ="link-container">
-<%= link_to "More Info", info_path, class: "link #{@page == 'info' ? 'active' : ''}" %>
-</h5>
 
-<h5 class ="link-container">
-<%= link_to "My Orders","" , class: "link #{@page == 'reviews' ? 'active' : ''}"%>
-</h5>
 
 <h5 class ="link-container">
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete  ,:style=>'color: white;'%>

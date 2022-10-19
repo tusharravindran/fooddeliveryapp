@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :payment
+  get 'payment/show', to: 'payment#index'
   resources :order_items
   get 'cart', to: 'cart#show'
   get 'search', to: 'menu#search'

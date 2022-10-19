@@ -6,7 +6,9 @@
 <b><%= f.number_field :quantity, value: item.quantity.to_i,   min: 1%><b>
 <%= f.submit "Update Cart" %>
 <%= link_to "Remove Items", item, method: :delete, remote: true %>
-<%= link_to "Back to Menu", menu_path, class: "link #{@page == 'menu' ? 'active' : ''}"%>
+<%= link_to "Back to Menu", menu_path%>
+<%= link_to "Checkout" ,payment_index_path%>
+
 <% end %>
 <h2>Subtotal: <%= item.total %></h2>
 <% end %>
