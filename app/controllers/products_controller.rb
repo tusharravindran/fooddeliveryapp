@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
   before_action :check_categories, only: %i[new create edit]
+  before_action :authorize_admin, only: %i[index show new create edit update destroy]
   # GET /products
   # GET /products.json
   def index
@@ -76,4 +77,10 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :image, :category_id, :vegan, :vegetarian, :available, :catering, :featured)
   end
+
+  def authorize_admin
+    return unless !current_user.admin?
+    redirect_to root_path, alert: 'Admins only!'
+  end
+
 end

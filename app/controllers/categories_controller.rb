@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize_admin, only: %i[index show new create edit update destroy]
   # GET /categories
   # GET /categories.json
   def index
@@ -65,6 +65,11 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
+    end
+
+    def authorize_admin
+      return unless !current_user.admin?
+      redirect_to root_path, alert: 'Admins only!'
     end
 
     # Only allow a list of trusted parameters through.

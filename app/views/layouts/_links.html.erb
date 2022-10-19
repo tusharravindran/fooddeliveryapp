@@ -1,6 +1,7 @@
+ <% if user_signed_in?%>
   <div class="col-2">
 <h5 class ="link-container">
-  <% if user_signed_in?%>
+  
 
 <%= link_to "Home", root_path, class: "link #{@page == 'home' ? 'active' : ''}"%>
 </h5>
@@ -29,16 +30,18 @@
 <h5 class ="link-container">
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete  ,:style=>'color: white;'%>
 </h5>
+</div>
  <%else%>
-
+<div class="col-2">
+<h5 class ="link-container">
   <h5 class ="link-container" style="text-align: right">
-      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Sign Up", new_user_registration_path if params[:controller].eql?('pages') && params[:action].eql?('home') %>
       </h5>
       <h5 class ="link-container" style="text-align: right">
-      <%= link_to "Log In", new_user_session_path %>
+      <%= link_to "Log In", new_user_session_path if params[:controller].eql?('pages') && params[:action].eql?('home') %>
       </h5>
-
-
+</h5>
+</div>
 <%end%>
 
-</div>
+

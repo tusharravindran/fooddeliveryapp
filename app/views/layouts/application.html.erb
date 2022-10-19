@@ -13,27 +13,14 @@
   </head>
 
   <body>
-
-
-
-
-
   <div class="<%= @page%>-page">
   <div class="row page-container">
-    
-    <%= render 'layouts/links' %>
-    
-    
-
+        <%= render 'layouts/links' %>
     <div class="col-8">
-    
-    <% unless @page == "home" %>
+        <% unless @page == "home" %>
     <%= render 'layouts/tittle' %>
         <%= yield %>
     <% end %>
-    
-
-  
     </div>
     <div class="col-2"></div>
     </div>
